@@ -3,13 +3,15 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Jeh Ferreira Nutri • Calculadora</title>
+  <title>Clube da Nutri • Calculadora</title>
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
   <main class="card">
+
     <header>
-      <h1>✨ Jeh Ferreira Nutri ✨</h1>
+      <h1>✨ Clube da Nutri ✨</h1>
       <p class="subtitle">
         Cansada de promessas vazias? Sua jornada começa com clareza e consistência.
       </p>
@@ -18,54 +20,70 @@
     <section class="box">
       <h2>Calcule seu Peso Ideal e o Tempo Estimado</h2>
 
-      <form id="form" class="form" novalidate>
+      <form id="form" class="form">
+
         <div class="field">
           <label>Seu gênero</label>
           <div class="radio-row">
             <label class="radio">
-              <input type="radio" name="gender" value="F" checked />
-              <span>Mulher</span>
+              <input type="radio" name="gender" value="F" checked>
+              Mulher
             </label>
+
             <label class="radio">
-              <input type="radio" name="gender" value="M" />
-              <span>Homem</span>
+              <input type="radio" name="gender" value="M">
+              Homem
             </label>
           </div>
         </div>
 
         <div class="grid">
+
           <div class="field">
-            <label for="height">Sua altura (cm)</label>
-            <input id="height" type="number" inputmode="numeric" min="80" max="230" placeholder="ex.: 165" required />
+            <label>Altura (cm)</label>
+            <input id="height" type="number" placeholder="165">
           </div>
 
           <div class="field">
-            <label for="weight">Seu peso atual (kg)</label>
-            <input id="weight" type="number" inputmode="decimal" min="20" max="300" step="0.1" placeholder="ex.: 72,5" required />
+            <label>Peso atual (kg)</label>
+            <input id="weight" type="number" placeholder="72">
           </div>
+
         </div>
 
-        <button class="btn" type="submit">Calcular ➕</button>
-        <p id="error" class="error" aria-live="polite"></p>
+        <button class="btn" type="submit">
+          Calcular
+        </button>
+
+        <p id="error" class="error"></p>
+
       </form>
     </section>
 
     <section class="results">
-      <h3>Seus resultados</h3>
-      <p id="idealLine">Seu <strong>Peso Ideal</strong> estimado: <strong>—</strong></p>
-      <h4>Tempo estimado para alcançar o peso ideal</h4>
-      <p id="timeLine">—</p>
+      <h3>Resultado</h3>
+      <p id="idealLine">Peso ideal: —</p>
+      <p id="timeLine">Tempo estimado: —</p>
+    </section>
 
-      <p class="disclaimer">
-        Estimativa para fins educativos. O ideal é avaliar composição corporal e histórico clínico.
-      </p>
+    <!-- BOTÃO FINAL -->
+    <section class="cta">
+      <h3>Quer um plano com estratégia e acompanhamento?</h3>
+
+      <a class="btn btn-cta"
+         href="https://pay.kiwify.com.br/VgM2cUX"
+         target="_blank">
+        Clique aqui
+      </a>
     </section>
 
     <footer class="footer">
-      <small>© <span id="year"></span> Jeh Ferreira Nutri</small>
+      © <span id="year"></span> Clube da Nutri
     </footer>
+
   </main>
 
-  <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
+
