@@ -1,47 +1,123 @@
-const form = document.getElementById("form");
-const heightEl = document.getElementById("height");
-const weightEl = document.getElementById("weight");
-const errorEl = document.getElementById("error");
-const idealLine = document.getElementById("idealLine");
-const timeLine = document.getElementById("timeLine");
-document.getElementById("year").textContent = new Date().getFullYear();
-
-function devineIdealWeightKg(heightCm, gender) {
-  const inches = heightCm / 2.54;
-  const inchesOver5ft = inches - 60;
-  const base = gender === "M" ? 50 : 45.5;
-  return base + 2.3 * inchesOver5ft;
+:root{
+  --bg:#0b0b10;
+  --card:#121221;
+  --text:#ffffff;
+  --muted:#b6b6c7;
+  --line:rgba(255,255,255,.15);
+  --accent:#9b5cff;
+  --danger:#ff6b6b;
 }
 
-function estimateTimeToGoal(currentKg, goalKg) {
-  const diff = currentKg - goalKg;
-  if (diff <= 0) return "Você já está abaixo/na faixa do peso estimado. Foque em saúde e composição corporal.";
-  const kgPerWeek = 2;
-  const weeks = diff / kgPerWeek;
-  const months = weeks / 4.345;
-  return `Estimativa: ~${Math.ceil(weeks)} semanas (aprox. ${Math.ceil(months)} meses) seguindo um método realista, com acompanhamento e estratégia.`;
+*{
+  box-sizing:border-box;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-function parseNumber(value) {
-  return Number(String(value).trim().replace(",", "."));
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  padding:20px;
 }
 
-form.addEventListener("submit", (e) => {
-  e.preventDefault();
-  errorEl.textContent = "";
+.card{
+  max-width:700px;
+  margin:auto;
+  background:var(--card);
+  border-radius:20px;
+  padding:22px;
+}
 
-  const gender = new FormData(form).get("gender");
-  const height = parseNumber(heightEl.value);
-  const weight = parseNumber(weightEl.value);
+h1{
+  text-align:center;
+}
 
-  if (!gender || !Number.isFinite(height) || !Number.isFinite(weight) || height <= 0 || weight <= 0) {
-    errorEl.textContent = "Preencha com valores válidos e positivos.";
-    return;
-  }
+.subtitle{
+  text-align:center;
+  color:var(--muted);
+}
 
-  const ideal = devineIdealWeightKg(height, gender);
-  const idealRounded = Math.round(ideal * 10) / 10;
+.box{
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:16px;
+}
 
-  idealLine.innerHTML = `Seu <strong>Peso Ideal</strong> estimado: <strong>${idealRounded} kg</strong>.`;
-  timeLine.textContent = estimateTimeToGoal(weight, idealRounded);
-});
+.form{
+  display:grid;
+  gap:14px;
+}
+
+.field label{
+  display:block;
+  margin-bottom:5px;
+  color:var(--muted);
+}
+
+input{
+  width:100%;
+  padding:12px;
+  border-radius:10px;
+  border:none;
+}
+
+.grid{
+  display:grid;
+  gap:12px;
+}
+
+.radio-row{
+  display:flex;
+  gap:10px;
+}
+
+.radio{
+  background:#1c1c2c;
+  padding:10px 14px;
+  border-radius:20px;
+}
+
+.btn{
+  background:var(--accent);
+  border:none;
+  padding:14px;
+  border-radius:12px;
+  font-size:16px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.results{
+  margin-top:20px;
+  border-top:1px solid var(--line);
+  padding-top:15px;
+}
+
+.error{
+  color:var(--danger);
+}
+
+.cta{
+  margin-top:25px;
+  text-align:center;
+  padding:18px;
+  border-radius:16px;
+  background:#1c1c2c;
+}
+
+.btn-cta{
+  display:inline-block;
+  margin-top:10px;
+  background:#22c55e;
+  color:black;
+  padding:14px 26px;
+  border-radius:12px;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+.footer{
+  margin-top:20px;
+  text-align:center;
+  color:var(--muted);
+}
