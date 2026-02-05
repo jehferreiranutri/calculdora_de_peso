@@ -16,10 +16,10 @@ function devineIdealWeightKg(heightCm, gender) {
 function estimateTimeToGoal(currentKg, goalKg) {
   const diff = currentKg - goalKg;
   if (diff <= 0) return "Você já está abaixo/na faixa do peso estimado. Foque em saúde e composição corporal.";
-  const kgPerWeek = 0.5;
+  const kgPerWeek = 2.0;
   const weeks = diff / kgPerWeek;
   const months = weeks / 4.345;
-  return `Estimativa: ~${Math.ceil(weeks)} semanas (aprox. ${Math.ceil(months)} meses) mantendo um ritmo saudável.`;
+  return `Estimativa: ~${Math.ceil(weeks)} semanas (aprox. ${Math.ceil(months)} meses) seguindo um método realista, com acompanhamento e estratégia.`;
 }
 
 function parseNumber(value) {
